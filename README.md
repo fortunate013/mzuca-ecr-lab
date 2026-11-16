@@ -4,18 +4,18 @@
 
 This project demonstrates how to containerize a Node.js application with Docker and publish the resulting image to a private Amazon Elastic Container Registry (Amazon ECR) repository.
 
-## Application
+## Application overview
 
 The Docker container starts the application with `node server.js`. The Dockerfile declares port `3000`; the application must listen on that port for the container to serve requests on it.
 
-## Dockerfile
+## Dockerfile explanation
 FROM node:22-alpine
 WORKDIR /app
 COPY server.js .
 EXPOSE 3000
 CMD ["node", "server.js"]
 
-## Build the image
+## Docker image build command
 Run this from the project directory, where the Dockerfile is located:
 docker build -t mzuca-ecr-lab:1.0 .
 
