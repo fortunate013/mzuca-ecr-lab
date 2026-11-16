@@ -19,15 +19,15 @@ CMD ["node", "server.js"]
 Run this from the project directory, where the Dockerfile is located:
 docker build -t mzuca-ecr-lab:1.0 .
 
-## 5. AWS Region
+## AWS Region
 
 The ECR repository is hosted in af-south-1
 
-## 6. ECR repository name
+## ECR repository name
 
 mzuca-ecr-lab
 
-## 7. Authentication process
+## Authentication process
 
 Select the configured AWS CLI profile and set the region and registry address:
 
@@ -38,15 +38,15 @@ Authenticate Docker to Amazon ECR:
 aws ecr get-login-password --region "$REGION" \
   | docker login --username AWS --password-stdin "$REGISTRY"
 
-## 8. Image publishing command
+## Image publishing command
 
 docker tag mzuca-ecr-lab:1.0 "$REGISTRY/mzuca-ecr-lab:1.0"
 
-## 9. Image publishing command
+## Image publishing command
 
 docker push "$REGISTRY/mzuca-ecr-lab:1.0"
 
-## 10. Image verification evidence
+## Image verification evidence
 
 Verify that the `1.0` tag exists in the ECR repository:
 aws ecr describe-images \
